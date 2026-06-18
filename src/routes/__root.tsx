@@ -78,17 +78,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "OBB Store — Maison Haymet" },
+      { title: "OBB Store" },
       {
         name: "description",
         content:
           "Boutique premium au Sénégal : maillots, t-shirts, chaussures et parfums sélectionnés par Maison Haymet.",
       },
       { name: "author", content: "OBB Store" },
-      { property: "og:title", content: "OBB Store — Maison Haymet" },
-      { property: "og:description", content: "Mode et lifestyle premium au Sénégal." },
+      { property: "og:title", content: "OBB Store" },
+      { property: "og:description", content: "Maison Haymet Store is a premium e-commerce website built with the MERN stack for a high-end shopping experience." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "OBB Store" },
+      { name: "description", content: "Maison Haymet Store is a premium e-commerce website built with the MERN stack for a high-end shopping experience." },
+      { name: "twitter:description", content: "Maison Haymet Store is a premium e-commerce website built with the MERN stack for a high-end shopping experience." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd1227a2-def5-4832-98d0-1ef982fbce64/id-preview-16b0878f--fa219df3-9b2b-4ec3-b658-222212e21df7.lovable.app-1781817384503.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd1227a2-def5-4832-98d0-1ef982fbce64/id-preview-16b0878f--fa219df3-9b2b-4ec3-b658-222212e21df7.lovable.app-1781817384503.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
