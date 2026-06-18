@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { ProductCard } from "@/components/product-card";
-import { getProduct, getRelated } from "@/lib/products";
+import { getProduct, getRelated, type Product } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart-context";
 
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/boutique/$slug")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const related = getRelated(product);
   const [variant, setVariant] = useState<string | undefined>(product.variants?.options[0]);
   const [activeImg, setActiveImg] = useState(0);

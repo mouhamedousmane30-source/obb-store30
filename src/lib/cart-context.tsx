@@ -95,18 +95,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const clear = useCallback(() => setItems([]), []);
 
   const value = useMemo<CartContextValue>(() => {
-    const lines: CartLine[] = items
-      .map((it) => {
-        const product = PRODUCTS.find((p) => p.slug === it.slug);
-        if (!product) return null;
-        return {
-          product,
-          variant: it.variant,
-          quantity: it.quantity,
-          lineTotal: product.price * it.quantity,
-        };
-      })
-      .filter((x): x is CartLine => x !== null);
+    const lines: CartLine[] = [];
+    for (const it of items) {
+      const product = PRODUCTS.find((p) => p.slug === it.slug);
+      if (!product) continue;
+      lines.push({
+        product,
+        variant: it.variant,
+        quantity: it.quantity,
+        lineTotal: product.price * it.quantity,
+      });
+    }
     const count = lines.reduce((s, l) => s + l.quantity, 0);
     const total = lines.reduce((s, l) => s + l.lineTotal, 0);
     return { items, lines, count, total, add, remove, setQuantity, clear };
