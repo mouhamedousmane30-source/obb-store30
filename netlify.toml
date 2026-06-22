@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  functions = "dist/server"
+  publish = "dist/client"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["sharp"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[context.production]
+  command = "npm run build"
+  
+[context.deploy-preview]
+  command = "npm run build:dev"
+
+[context.branch-deploy]
+  command = "npm run build:dev"
