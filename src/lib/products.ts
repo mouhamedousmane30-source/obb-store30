@@ -1,10 +1,13 @@
-import maillotsImg from "@/assets/cat-maillots.jpg";
+import maillotsImg from "@/assets/shoptonmaillot.png";
+import maillotsImgHover from "@/assets/shoptonmaillot2.png";
 import tshirtsImg from "@/assets/cat-tshirts.jpg";
 import chaussuresImg from "@/assets/cat-chaussures.jpg";
 import parfumsImg from "@/assets/cat-parfums.jpg";
-import tshirtNoir from "@/assets/p-tshirt-noir.jpg";
-import sneakerBlanc from "@/assets/p-sneaker-blanc.jpg";
-import maillotVert from "@/assets/p-maillot-vert.jpg";
+import maillotsenegal from "@/assets/maillotsenegal.png";
+import shoes2 from "@/assets/shoes2.png";
+import shoes1 from "@/assets/shoes1.png";
+import weaintboyz2 from "@/assets/weaintboyz2.png";
+import weainboyz1 from "@/assets/weainboyz1.png";
 
 export type CategorySlug = "maillots" | "tshirts" | "chaussures" | "parfums";
 
@@ -12,12 +15,13 @@ export interface Category {
   slug: CategorySlug;
   label: string;
   image: string;
+  hoverImage?: string;
 }
 
 export const CATEGORIES: Category[] = [
-  { slug: "maillots", label: "Maillots", image: maillotsImg },
-  { slug: "tshirts", label: "T-shirts", image: tshirtsImg },
-  { slug: "chaussures", label: "Chaussures", image: chaussuresImg },
+  { slug: "maillots", label: "Maillots", image: maillotsImg, hoverImage: maillotsImgHover },
+  { slug: "tshirts", label: "T-shirts", image: weaintboyz2, hoverImage: weainboyz1 },
+  { slug: "chaussures", label: "Chaussures", image: shoes2, hoverImage: shoes1 },
   { slug: "parfums", label: "Parfums", image: parfumsImg },
 ];
 
@@ -26,6 +30,7 @@ export interface Product {
   name: string;
   subtitle: string;
   price: number;
+  originalPrice?: number;
   category: CategorySlug;
   image: string;
   gallery: string[];
@@ -33,117 +38,26 @@ export interface Product {
   variants?: { label: string; options: string[] };
   isNew?: boolean;
   isPopular?: boolean;
+  promoEndDate?: Date;
 }
 
 const SIZES_CLOTHING = { label: "Taille", options: ["S", "M", "L", "XL"] };
-const SIZES_SHOES = { label: "Pointure", options: ["40", "41", "42", "43", "44", "45"] };
-const VOLUMES = { label: "Format", options: ["50ml", "100ml"] };
 
 export const PRODUCTS: Product[] = [
   {
-    slug: "maillot-or-2024",
-    name: "Maillot d'Or 2024",
-    subtitle: "Édition Limitée",
-    price: 55000,
+    slug: "maillot-senegal",
+    name: "Maillot Sénégal",
+    subtitle: "OBB STORE",
+    price: 7000,
+    originalPrice: 10000,
     category: "maillots",
-    image: maillotVert,
-    gallery: [maillotVert, maillotsImg],
+    image: maillotsenegal,
+    gallery: [maillotsenegal],
     description:
-      "Maillot en édition limitée tissé dans un polyester technique respirant. Broderie dorée à la main, finitions soignées et coupe ajustée pour un confort optimal sur et hors du terrain.",
-    variants: SIZES_CLOTHING,
-    isNew: true,
-    isPopular: true,
-  },
-  {
-    slug: "maillot-classique-vert",
-    name: "Maillot Classique Vert",
-    subtitle: "Collection Heritage",
-    price: 42000,
-    category: "maillots",
-    image: maillotsImg,
-    gallery: [maillotsImg, maillotVert],
-    description:
-      "Un classique réinterprété par Maison Haymet. Vert forêt profond, écusson brodé fil d'or, coupe contemporaine.",
+      "Maillot officiel du Sénégal par OBB STORE. Qualité premium, coupe ajustée, tissu respirant. Portez fièrement les couleurs nationales.",
     variants: SIZES_CLOTHING,
     isPopular: true,
-  },
-  {
-    slug: "tshirt-signature-noir",
-    name: "T-Shirt Signature Noir",
-    subtitle: "Maison Haymet",
-    price: 22000,
-    category: "tshirts",
-    image: tshirtNoir,
-    gallery: [tshirtNoir, tshirtsImg],
-    description:
-      "Coton premium 240gr, coupe boxy, logo doré brodé discrètement sur la poitrine. Une pièce essentielle du vestiaire OBB.",
-    variants: SIZES_CLOTHING,
-    isPopular: true,
-  },
-  {
-    slug: "tshirt-blanc-essentiel",
-    name: "T-Shirt Blanc Essentiel",
-    subtitle: "Coton Premium",
-    price: 18000,
-    category: "tshirts",
-    image: tshirtsImg,
-    gallery: [tshirtsImg, tshirtNoir],
-    description:
-      "L'essentiel blanc, revisité. Coton longues fibres, col renforcé, finitions surpiquées main.",
-    variants: SIZES_CLOTHING,
-    isNew: true,
-  },
-  {
-    slug: "sneaker-heritage-blanc",
-    name: "Sneaker Heritage Blanc",
-    subtitle: "Cuir Véritable",
-    price: 85000,
-    category: "chaussures",
-    image: sneakerBlanc,
-    gallery: [sneakerBlanc, chaussuresImg],
-    description:
-      "Basket en cuir pleine fleur monté à la main, œillets dorés, semelle interne en cuir. Une silhouette intemporelle.",
-    variants: SIZES_SHOES,
-    isPopular: true,
-  },
-  {
-    slug: "sneaker-heritage-noir",
-    name: "Sneaker Heritage Noir",
-    subtitle: "Édition Limitée",
-    price: 95000,
-    category: "chaussures",
-    image: chaussuresImg,
-    gallery: [chaussuresImg, sneakerBlanc],
-    description:
-      "Version noire de la Heritage, sur piédestal. Cuir mat, semelle vulcanisée, finitions cousues.",
-    variants: SIZES_SHOES,
-    isNew: true,
-  },
-  {
-    slug: "essence-de-dakar-50ml",
-    name: "Essence de Dakar",
-    subtitle: "Eau de Parfum",
-    price: 120000,
-    category: "parfums",
-    image: parfumsImg,
-    gallery: [parfumsImg],
-    description:
-      "Un parfum oriental boisé : notes de tête bergamote et safran, cœur de rose et oud, fond de musc et ambre. Flacon ambré, bouchon doré.",
-    variants: VOLUMES,
-    isPopular: true,
-  },
-  {
-    slug: "oud-royal",
-    name: "Oud Royal",
-    subtitle: "Fragrance Signature",
-    price: 145000,
-    category: "parfums",
-    image: parfumsImg,
-    gallery: [parfumsImg],
-    description:
-      "Oud brut de Madagascar, vanille de Tahiti, encens. Une signature olfactive intense et envoûtante.",
-    variants: VOLUMES,
-    isNew: true,
+    promoEndDate: new Date(Date.now() + 48 * 60 * 60 * 1000), // 48 hours from now
   },
 ];
 

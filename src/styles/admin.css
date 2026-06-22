@@ -1,0 +1,80 @@
+/* OBB Store Admin Dashboard - Brand-aligned Styles */
+
+@import 'tailwindcss';
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300 transition-shadow;
+}
+
+/* Premium table styling */
+table tbody tr {
+  @apply transition-colors duration-200;
+}
+
+table tbody tr:hover {
+  @apply bg-muted/10;
+}
+
+/* Input styling aligned with OBB design */
+input,
+select,
+textarea {
+  @apply transition-all duration-200;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  @apply ring-1 ring-accent/50;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.3);
+}
+
+/* Smooth page transitions */
+main {
+  @apply animate-fade-in;
+}
+
+/* Button hover states */
+button {
+  @apply transition-all duration-200;
+}
+
+button:active {
+  @apply scale-95;
+}
+
+/* Card animations */
+.admin-card {
+  @apply transition-all duration-300;
+}
+
+.admin-card:hover {
+  @apply shadow-md;
+}
+

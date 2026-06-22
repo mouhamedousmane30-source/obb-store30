@@ -23,43 +23,43 @@ function ContactPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav />
 
-      <section className="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
         <div>
-          <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-semibold mb-4 block">
+          <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-semibold mb-3 sm:mb-4 block">
             Nous joindre
           </span>
-          <h1 className="text-4xl md:text-5xl font-display mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 sm:mb-6">
             Une question ?
             <br />
             <i className="italic text-accent">Parlons-en.</i>
           </h1>
-          <p className="text-muted leading-relaxed">
+          <p className="text-muted leading-relaxed text-sm sm:text-base">
             Notre équipe est disponible 7j/7 pour vous accompagner dans vos commandes, vos
             questions sur les produits ou la livraison.
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           <ContactItem label="WhatsApp">
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg hover:text-accent transition-colors"
+              className="text-base sm:text-lg hover:text-accent transition-colors"
             >
               +{WHATSAPP_NUMBER}
             </a>
           </ContactItem>
           <ContactItem label="E-mail">
-            <a href={`mailto:${CONTACT_EMAIL}`} className="text-lg hover:text-accent transition-colors">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-base sm:text-lg hover:text-accent transition-colors">
               {CONTACT_EMAIL}
             </a>
           </ContactItem>
           <ContactItem label="Adresse">
-            <span className="text-lg">{CONTACT_CITY}</span>
+            <span className="text-base sm:text-lg">{CONTACT_CITY}</span>
           </ContactItem>
           <ContactItem label="Horaires">
-            <span className="text-lg">Lundi — Samedi · 9h — 20h</span>
+            <span className="text-base sm:text-lg">Lundi — Samedi · 9h — 22h</span>
           </ContactItem>
         </div>
       </section>
